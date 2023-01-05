@@ -33,7 +33,6 @@ selecttrack = re.sub(r"[(),']", "", str(cursor.fetchone()))
 
 # Set condition based on Track selection
 selectcondition = ""
-selecttrack = "Ba"
 if selecttrack in rainlist and selecttrack in nightlist:
     conditionrandom = random.randrange(0, 9, 1)
     if conditionrandom <= 3:
@@ -70,7 +69,6 @@ if selectcondition == "Rain":
         cursor.execute(f"SELECT Weather FROM WeatherType WHERE IDNo = {weatherindex}")
         weatherhold = re.sub(r"[(),']", "", str(cursor.fetchone()))
         selectweather.append(weatherhold) 
-        # selectweather.append(random.choice(weatherlist))
         if i > 0:
             weatherprobability.append(random.randrange(0,100,20))
 
